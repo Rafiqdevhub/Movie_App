@@ -19,5 +19,3 @@ Built with React.js for the user interface, Appwrite for the Trending Movies Alg
 👉 **Modern UI/UX**: A sleek and user-friendly interface designed for a great experience.
 
 👉 **Responsiveness**: Fully responsive design that works seamlessly across devices.
-
-and many more, including code architecture and reusability
