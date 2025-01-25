@@ -3,7 +3,6 @@ import "./App.css";
 import Search from "./components/Search";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
-
 const API_KEY = import.meta.env.VITE_IMDB_API_KEY;
 
 const API_OPTIONS = {
@@ -43,6 +42,7 @@ const App = () => {
       }
 
       setMovieList(data.results || []);
+      // console.log(data);
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
       setErrorMessage("Error fetching movies. Please try again later.");
