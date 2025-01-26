@@ -17,12 +17,16 @@ const API_OPTIONS = {
   },
 };
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [movieList, setMovieList] = useState([]);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const [movieList, setMovieList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
   const [trendingMovies, setTrendingMovies] = useState([]);
+
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
 
   useDebounce(() => {
     setDebouncedSearchTerm(searchTerm), 500, [searchTerm];
@@ -93,14 +97,11 @@ const App = () => {
             Find <span className="text-gradient">Movies</span> You&apos;ll Enjoy
             Without the Hassle
           </h1>
-
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
-
         {trendingMovies.length > 0 && (
           <section className="trending">
             <h2>Trending Movies</h2>
-
             <ul>
               {trendingMovies.map((movie, index) => (
                 <li key={movie.$id}>
